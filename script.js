@@ -1,45 +1,66 @@
 //
 //
 
+let sheetBestAPI = "https://sheet.best/api/sheets/0ae52285-ba6f-433c-a34e-030e895d68f9";
+
 // Inicializar la orden y el monto total
 order = [];
 total = 0;
 
-function successFunc(data) {
-  data.forEach(function(item, i) {
-    // 📝 Cargo la orden vacía
-    order.push({
-      product: item.Producto,
-      cant: 0,
-      price: item.Precio
-    });
-
-    // Listado de productos
-    document.getElementById("products").innerHTML +=
-      "<div class='product'><img src='" +
-      item.Foto +
-      "'/><div class='productData'><h3>" +
-      item.Producto +
-      "</h3><p>" +
-      item.Descripcion +
-      "</p><div class='footer'><span class='price'>$" +
-      item.Precio +
-      "</span><div class='actions'><button class='remove notVisible' onclick='removeProduct(" +
-      i +
-      ")' data-cod='" +
-      i +
-      "'><svg viewBox='0 0 24 24'><g><rect height='4' width='20' x='2' y='10'></rect></g></svg></button><button onclick='addProduct(" +
-      i +
-      ")' class='add' data-cod='" +
-      i +
-      "'>Agregar</button></div></div></div></div>";
+fetch(sheetBestAPI)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data[0].Logo);
+    document.getElementById("site-header").innerHTML +=
+      "<img alt='Logo de " +
+      data[0].Nombre + "' src='" +
+      data[0].Logo +
+      "'/><h1>" +
+      data[0].Nombre + "</h1><h3>" +
+      data[0].Descripcion + "</h3><input id='wpp' value='" +
+      data[0].WhatsApp + "' /><div id='instructions'>" +
+      data[0].Instrucciones + "</div><a target='_blank' href='https://api.whatsapp.com/send?phone=549" +
+      data[0].WhatsApp + "' id='link-wpp'><svg viewBox='0 0 10.79 10.79' xmlns='http://www.w3.org/2000/svg'><path d='M10.79 5.12A5.3 5.3 0 00.2 5v.23A5.12 5.12 0 001 8l-1 2.79 2.93-.93a5.31 5.31 0 007.86-4.6zm-5.3 4.56A4.49 4.49 0 013 9l-1.71.54.56-1.64A4.41 4.41 0 011 5.26v-.43a4.46 4.46 0 018.87.08v.35a4.45 4.45 0 01-4.38 4.42zm2.6-2.6a1.27 1.27 0 01-.87.61c-.24 0-.24.2-1.56-.32a5.29 5.29 0 01-2.22-1.94 3 3 0 01-.44-.9 1.62 1.62 0 01-.07-.44A1.47 1.47 0 013.36 3a.48.48 0 01.35-.16H4c.08 0 .18-.05.29.21s.37.9.4 1a.23.23 0 010 .23l-.08.15v.06a2.33 2.33 0 01-.19.23.18.18 0 00-.14.28 4.11 4.11 0 00.72.86 3.48 3.48 0 001 .64.2.2 0 00.28 0c.08-.09.32-.38.41-.51s.17-.1.29-.06.76.35.89.42.22.09.25.15a1.09 1.09 0 01-.03.58z' fill=#fff'></path></svg></a>";
   });
-}
 
-Sheetsu.read(
-  "https://sheetsu.com/apis/v1.0su/0e7413429ae0/sheets/Productos", {},
-  successFunc
-);
+// Consulto la API con fetch y guardo el json en data
+fetch(sheetBestAPI + '/tabs/Productos')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    data.forEach(function(item, i) {
+      // 📝 Cargo la orden vacía
+      order.push({
+        product: item.Producto,
+        cant: 0,
+        price: item.Precio
+      });
+
+      // Listado de productos
+      document.getElementById("products").innerHTML +=
+        "<div class='product'><div class='product_image'><img src='" +
+        item.Foto +
+        "'/></div><div class='productData'><h3>" +
+        item.Producto +
+        "</h3><p>" +
+        item.Descripcion +
+        "</p><div class='footer'><span class='price'>$" +
+        item.Precio +
+        "</span><div class='actions'><button class='remove notVisible' onclick='removeProduct(" +
+        i +
+        ")' data-cod='" +
+        i +
+        "'><svg viewBox='0 0 24 24'><g><rect height='4' width='20' x='2' y='10'></rect></g></svg></button><button onclick='addProduct(" +
+        i +
+        ")' class='add' data-cod='" +
+        i +
+        "'>Agregar</button></div></div></div></div>";
+    });
+    document.body.classList.add("loaded");
+  })
 
 // Cambiar el texto del botón Agregar a Agregar 1 más
 function changeBtnText(cod, cant) {

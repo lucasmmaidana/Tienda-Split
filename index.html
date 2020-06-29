@@ -3,11 +3,11 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
-  <title>Nova Postres</title>
-  <link rel="icon" type="image/png" href="./nova_postres_icon.png">
-  <meta name="description" content="Postres llenos de amor para la cuarentena">
+  <title>Splitzza</title>
+  <link rel="icon" type="image/png" href="./Logo_Splitzza.png">
+  <meta name="description" content="Las mejores pizzas gourmet de la ciudad">
 
-  <meta content='#5f1fab' name='theme-color'>
+  <meta content='#ef6c00' name='theme-color'>
   <meta content='yes' name='mobile-web-app-capable'>
   <meta content='yes' name='apple-mobile-web-app-capable'>
 
@@ -15,71 +15,63 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script src="./script.js"></script>
+
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
 
-  <head>
-    <!-- Add Sheetsu Web Client script to the head -->
-    <script src="//script.sheetsu.com/"></script>
-  </head>
+  <div id="loader" class="cssload-loader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-  <body>
-    <div id="content">
+  <div id="content">
 
-      <header sheetsu="https://sheetsu.com/apis/v1.0bu/0e7413429ae0/sheets/Info" sheetsu-limit="1">
-        <style>
-          body {
-            background-color: {
-                {
-                Fondo
-              }
-            }
-          }
-        </style>
-        <img src="{{Logo}}" />
-        <h1>{{Nombre}}</h1>
-        <h3>{{Descripcion}}</h3>
-        <input id="wpp" value="{{WhatsApp}}" />
-        <div id="instructions">{{Instrucciones}}</div>
-      </header>
+    <header id="site-header">
+    </header>
+    <div id="products"></div>
 
-      <script src="//load.sheetsu.com"></script>
+    <footer id="site-footer">
+      <a href="https://www.notion.so/lucasmaidana/Tienda-Split-765a6466e8184955ba9524e197e1cfa0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 397.7 506.5" height="26">
+          <path fill=" #ffffff"
+            d="M343.4 367.6c-.3-.6-.6-1.3-.8-1.9l11.1-1.3c22.8-2.7 39.3-23.6 36.6-46.4l-22.2-188.7c-2.7-22.8-23.6-39.3-46.4-36.6l-54.1 6.4-64.9 107.2 107.8 116.6-56.6 55.7 4.4 4.4c49.4 46.1 121.4 38.6 139.4 36.2-17.7-8.9-41.7-24.5-54.3-51.6zM23.2 198.4l96.6-81.9-82.9 9.8C14.1 129-2.4 149.9.3 172.7l22.2 188.7c2.7 22.8 23.6 39.3 46.4 36.6l50.1-5.9 33.8-62.8L23.2 198.4z" />
+          <path fill="#ffffff" d="M61.4 200L297.3 0l-127 209.5L274.4 322 86.9 506.5l98-181.8z" /></svg>
+        Tienda Split
+      </a>
+    </footer>
 
-      <div id="products"></div>
-
-      <div onclick="document.getElementById('order').classList.toggle('visible')" id="showOrder">
-        <div class="content">
-          <span>Ver pedido</span>
-          <span id="totalPricePreview" class="animate"></span>
-        </div>
+    <div onclick="document.getElementById('order').classList.toggle('visible')" id="showOrder">
+      <div class="content">
+        <span>Ver pedido</span>
+        <span id="totalPricePreview" class="animate"></span>
       </div>
+    </div>
 
-      <div id="order">
-        <div class="content">
-          <button onclick="document.getElementById('order').classList.toggle('visible')" id="close">◀ Volver</button>
-          <div class="list">
-            <h2>Tu pedido</h2>
-            <ul id="orderList">
-            </ul>
-          </div>
-          <div class="footer">
-            <div class="col"><button onclick="sendOrder()" id="purchase"><svg class="social" viewBox="0 0 10.79 10.79" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 5.12A5.3 5.3 0 00.2 5v.23A5.12 5.12 0 001 8l-1 2.79 2.93-.93a5.31 5.31 0 007.86-4.6zm-5.3 4.56A4.49 4.49 0 013 9l-1.71.54.56-1.64A4.41 4.41 0 011 5.26v-.43a4.46 4.46 0 018.87.08v.35a4.45 4.45 0 01-4.38 4.42zm2.6-2.6a1.27 1.27 0 01-.87.61c-.24 0-.24.2-1.56-.32a5.29 5.29 0 01-2.22-1.94 3 3 0 01-.44-.9 1.62 1.62 0 01-.07-.44A1.47 1.47 0 013.36 3a.48.48 0 01.35-.16H4c.08 0 .18-.05.29.21s.37.9.4 1a.23.23 0 010 .23l-.08.15v.06a2.33 2.33 0 01-.19.23.18.18 0 00-.14.28 4.11 4.11 0 00.72.86 3.48 3.48 0 001 .64.2.2 0 00.28 0c.08-.09.32-.38.41-.51s.17-.1.29-.06.76.35.89.42.22.09.25.15a1.09 1.09 0 01-.03.58z"
-                    data-name="Capa 2" fill="#fff"></path>
-                </svg>Completar pedido por WhatsApp</button></div>
-            <div class="col"><span>Total:</span>
-              <span id="totalPrice"></span></div>
-          </div>
+    <div id="order">
+      <div class="content">
+        <button onclick="document.getElementById('order').classList.toggle('visible')" id="close">◀ Volver</button>
+        <div class="list">
+          <h2>Tu pedido</h2>
+          <ul id="orderList">
+          </ul>
+        </div>
+        <div class="footer">
+          <div class="col"><button onclick="sendOrder()" id="purchase"><svg class="social" viewBox="0 0 10.79 10.79" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.79 5.12A5.3 5.3 0 00.2 5v.23A5.12 5.12 0 001 8l-1 2.79 2.93-.93a5.31 5.31 0 007.86-4.6zm-5.3 4.56A4.49 4.49 0 013 9l-1.71.54.56-1.64A4.41 4.41 0 011 5.26v-.43a4.46 4.46 0 018.87.08v.35a4.45 4.45 0 01-4.38 4.42zm2.6-2.6a1.27 1.27 0 01-.87.61c-.24 0-.24.2-1.56-.32a5.29 5.29 0 01-2.22-1.94 3 3 0 01-.44-.9 1.62 1.62 0 01-.07-.44A1.47 1.47 0 013.36 3a.48.48 0 01.35-.16H4c.08 0 .18-.05.29.21s.37.9.4 1a.23.23 0 010 .23l-.08.15v.06a2.33 2.33 0 01-.19.23.18.18 0 00-.14.28 4.11 4.11 0 00.72.86 3.48 3.48 0 001 .64.2.2 0 00.28 0c.08-.09.32-.38.41-.51s.17-.1.29-.06.76.35.89.42.22.09.25.15a1.09 1.09 0 01-.03.58z"
+                  data-name="Capa 2" fill="#fff"></path>
+              </svg>Completar pedido por WhatsApp</button></div>
+          <div class="col"><span>Total:</span>
+            <span id="totalPrice"></span></div>
         </div>
       </div>
     </div>
-  </body>
-  <!-- partial -->
-  <script src="./script.js"></script>
-
+  </div>
 </body>
 
 </html>

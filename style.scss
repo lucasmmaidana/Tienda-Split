@@ -60,6 +60,19 @@ header {
   input {
     display: none;
   }
+  #link-wpp {
+    background-color: #7f4cbc;
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    padding: 0.7em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    svg {
+      fill:#ffffff;
+    }
+  }
 }
 
 #instructions {
@@ -76,10 +89,17 @@ header {
   .product {
     margin-bottom: 2em;
 
-    img {
+    .product_image {
       border-radius: 10px;
-    }
-
+      height: 20em;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      img {
+        min-height: 100%;
+        object-fit: cover;
+      }
+}
     .productData {
       background-color: #ffffff;
       padding: 1em;
@@ -341,6 +361,20 @@ header {
       #totalPrice {
         font-size: 1.5em;
       }
+    }
+  }
+}
+#site-footer {
+  padding:0 1em 1em 1em;
+  font-size:0.9em;
+  display:none;
+  a {
+    display: flex;
+    align-items: center;
+    color: white;
+    opacity: 0.8;
+    svg {
+      margin-right:0.6em;
     }
   }
 }
