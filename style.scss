@@ -85,9 +85,12 @@ header {
 
 #products {
   padding-bottom: 3em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-gap: 1em;
 
   .product {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 
     .product_image {
       border-radius: 10px;
