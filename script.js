@@ -63,23 +63,14 @@ fetch(sheetBestAPI + '/tabs/Productos')
     document.body.classList.add("loaded");
   });
 
-
 // Cambiar el texto del botón Agregar a Agregar 1 más
 function changeBtnText(cod, cant) {
   if (cant == 0) {
-    document.getElementById("products").childNodes[
-      cod
-    ].lastChild.childNodes[2].childNodes[1].childNodes[0].classList.add("notVisible");
-    document.getElementById("products").childNodes[
-      cod
-    ].lastChild.childNodes[2].childNodes[1].childNodes[1].innerHTML = "Agregar";
+    document.getElementById("products").childNodes[cod + 1].lastChild.childNodes[2].childNodes[1].childNodes[0].classList.add("notVisible");
+    document.getElementById("products").childNodes[cod + 1].lastChild.childNodes[2].childNodes[1].childNodes[1].innerHTML = "Agregar";
   } else {
-    document.getElementById("products").childNodes[
-      cod
-    ].lastChild.childNodes[2].childNodes[1].childNodes[0].classList.remove("notVisible");
-    document.getElementById("products").childNodes[
-      cod
-    ].lastChild.childNodes[2].childNodes[1].childNodes[1].innerHTML = "Agregar 1 más";
+    document.getElementById("products").childNodes[cod + 1].lastChild.childNodes[2].childNodes[1].childNodes[0].classList.remove("notVisible");
+    document.getElementById("products").childNodes[cod + 1].lastChild.childNodes[2].childNodes[1].childNodes[1].innerHTML = "Agregar 1 más";
   }
 }
 
@@ -93,7 +84,7 @@ function animateTotal() {
 }
 
 // Agregar un producto al pedido
-function addProduct(cod, text) {
+function addProduct(cod) {
   order[cod].cant += 1;
   changeBtnText(cod, order[cod].cant);
   refreshOrder();
@@ -107,14 +98,6 @@ function removeProduct(cod) {
   refreshOrder();
   animateTotal();
 }
-
-window.addEventListener("load", () => loadEvents(), false);
-
-async function loadEvents() {
-
-
-}
-
 
 // Enviar pedido
 function sendOrder() {
@@ -149,9 +132,11 @@ function refreshOrder() {
   for (let item of order) {
     // Incluir producto en la orden si cantidad es mayor a cero
     if (item.cant > 0) {
-
-      removeSymbol = "<svg viewBox='0 0 24 24'><g><rect height='4' width='20' x='2' y='10'></rect></g></svg>";
-
+      if (item.cant > 1) {
+        removeSymbol = "<svg viewBox='0 0 24 24'><g><rect height='4' width='20' x='2' y='10'></rect></g></svg>";
+      } else {
+        removeSymbol = "✖";
+      }
       document.getElementById("orderList").innerHTML +=
         "<li><span>" +
         item.product +
