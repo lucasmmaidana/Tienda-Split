@@ -7,7 +7,7 @@ let sheetBestAPI = "https://sheet.best/api/sheets/0ae52285-ba6f-433c-a34e-030e89
 order = [];
 total = 0;
 
-fetch(sheetBestAPI)
+fetch(sheetBestAPI + '/tabs/Info')
   .then(function(response) {
     return response.json();
   })
@@ -59,8 +59,10 @@ fetch(sheetBestAPI + '/tabs/Productos')
         i +
         "'>Agregar</button></div></div></div></div>";
     });
+
     document.body.classList.add("loaded");
-  })
+  });
+
 
 // Cambiar el texto del botón Agregar a Agregar 1 más
 function changeBtnText(cod, cant) {
@@ -105,6 +107,14 @@ function removeProduct(cod) {
   refreshOrder();
   animateTotal();
 }
+
+window.addEventListener("load", () => loadEvents(), false);
+
+async function loadEvents() {
+
+
+}
+
 
 // Enviar pedido
 function sendOrder() {
