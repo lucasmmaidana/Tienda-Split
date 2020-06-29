@@ -1,5 +1,18 @@
+:root {
+  --color-background: #eceff1;
+  --color-primary: #ef6c00;
+  --color-primary-light: #ffe0b2;
+  --color-primary-dark: #ef6c00;
+  --color-secondary: #5e35b1;
+  --color-secondary-light: #5e35b1;
+  --color-secondary-dark: #5e35b1;
+  --color-text-light: #ffffff;
+  --color-text-dark: #263238;
+}
+
 body {
-  background-color: #5f1fab;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
   font-family: Arial;
 }
 
@@ -25,7 +38,7 @@ header {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  color: white;
+  color: var(--color-text-dark);
   text-align: center;
   margin: 2em 0;
 
@@ -41,7 +54,7 @@ header {
   }
 
   h3 {
-    color: rgba(255, 255, 255, 0.8);
+
   }
 
   input {
@@ -51,8 +64,8 @@ header {
 
 #instructions {
   margin-top: 1.5em;
-  color: #ffffff;
-  background-color: #7f4cbc;
+  color: var(--color-text-dark);
+  background-color: var(--color-primary-light);
   padding: 0.5em 0.7em;
   border-radius: 10px;
 }
@@ -72,7 +85,7 @@ header {
       padding: 1em;
       border-radius: 10px;
       margin: -5em 1em 0;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
       position: relative;
 
       h3 {
@@ -88,7 +101,7 @@ header {
         align-items: center;
 
         .price {
-          color: #5f1fab;
+          color: var(--color-primary-dark);
           font-size: 1.2em;
         }
 
@@ -111,13 +124,13 @@ header {
 
           &.remove {
             background-color: white;
-            box-shadow: inset 0 0 0 3px #5f1fab;
+            box-shadow: inset 0 0 0 3px var(--color-primary);
             margin-right: 0.6em;
             display: flex;
             align-items: center;
 
             svg {
-              fill: #5f1fab;
+              fill: var(--color-primary);
               width: 1em;
             }
 
@@ -127,8 +140,8 @@ header {
           }
 
           &.add {
-            background-color: #5f1fab;
-            color: white;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
           }
         }
       }
@@ -145,7 +158,7 @@ header {
   left: 0;
   width: 100%;
   padding: 10px 0;
-  background-color: #5f1fab;
+  background-color: var(--color-background);
   transform: translateY(6em);
   transition: 0.3s ease-out;
 
@@ -156,13 +169,13 @@ header {
   .content {
     width: 23em;
     padding: 0.8em 2em;
-    background-color: #7f4cbc;
+    background-color: var(--color-primary-dark);
     border-radius: 10px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    color: white;
+    color: var(--color-text-light);
 
     span:first-child {}
 
@@ -292,8 +305,8 @@ header {
     }
 
     #purchase {
-      background-color: #5f1fab;
-      color: white;
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
       font-weight: bold;
       border-radius: 10px;
       border: 0;
