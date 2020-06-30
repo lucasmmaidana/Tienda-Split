@@ -132,11 +132,8 @@ function refreshOrder() {
   for (let item of order) {
     // Incluir producto en la orden si cantidad es mayor a cero
     if (item.cant > 0) {
-      if (item.cant > 1) {
-        removeSymbol = "<svg viewBox='0 0 24 24'><g><rect height='4' width='20' x='2' y='10'></rect></g></svg>";
-      } else {
-        removeSymbol = "✖";
-      }
+      removeSymbol = "<svg viewBox='0 0 24 24'><g><rect height='4' width='20' x='2' y='10'></rect></g></svg>";
+
       document.getElementById("orderList").innerHTML +=
         "<li><span>" +
         item.product +
