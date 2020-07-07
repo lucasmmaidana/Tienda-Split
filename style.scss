@@ -391,6 +391,7 @@ header {
 
     .col:first-child {
       padding-right: 1em;
+      flex-grow: 1;
     }
 
     #purchase {
@@ -400,6 +401,7 @@ header {
       border-radius: 10px;
       border: 0;
       padding: 1em;
+      text-align:  center;
       font-size: 1em;
       display: flex;
       align-items: center;
