@@ -10,12 +10,23 @@
   --color-text-dark: #263238;
 }
 
+#loader {
+  width: 100%;
+    background: var(--color-background);
+    height: 100%;
+    position: fixed;
+    display: flex;
+    z-index: 99;
+    align-items: center;
+    justify-content: center;
+}
 .loaded #loader {display: none}
+
 .cssload-loader {
   width: 85px;
   height: 17px;
   position: fixed;
-  top:30vh;
+  top:40vh;
   left: 50%;
   transform: translate(-50%, -50%);
   & > div {
@@ -234,7 +245,7 @@ header {
   width: 100%;
   left: 0;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 1em;
   background-color: var(--color-background);
   transform: translateY(6em);
   transition: 0.3s ease-out;
@@ -244,7 +255,8 @@ header {
   }
 
   .content {
-    width: 23em;
+    max-width: 23em;
+    flex-grow:1;
     padding: 0.8em 2em;
     background-color: var(--color-primary-dark);
     border-radius: 10px;
