@@ -101,7 +101,7 @@ function removeProduct(cod) {
 
 // Enviar pedido
 function sendOrder() {
-  document.getElementById("purchase").innerHTML = "<img src='/success.gif'/>¡Gracias!";
+  document.getElementById("purchase").innerHTML = "¡Gracias!";
   // Obtengo el número de WhatsApp
   wppNumber = document.getElementById("wpp").value;
   // Empiezo a crear el string del link
