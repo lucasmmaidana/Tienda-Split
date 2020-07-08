@@ -7,6 +7,7 @@ let sheetBestAPI = "https://sheet.best/api/sheets/0ae52285-ba6f-433c-a34e-030e89
 order = [];
 total = 0;
 
+// Cargar elementos de la cabecera desde la API
 fetch(sheetBestAPI + '/tabs/Info')
   .then(function(response) {
     return response.json();
@@ -14,7 +15,7 @@ fetch(sheetBestAPI + '/tabs/Info')
   .then(function(data) {
     console.log(data[0].Logo);
     document.getElementById("site-header").innerHTML +=
-      "<img alt='Logo de " +
+      "<img height='100' width='100' alt='Logo de " +
       data[0].Nombre + "' src='" +
       data[0].Logo +
       "'/><h1>" +
@@ -101,7 +102,7 @@ function removeProduct(cod) {
 
 // Enviar pedido
 function sendOrder() {
-  document.getElementById("purchase").innerHTML = "¡Gracias!";
+  //document.getElementById("purchase").innerHTML = "¡Gracias!";
   // Obtengo el número de WhatsApp
   wppNumber = document.getElementById("wpp").value;
   // Empiezo a crear el string del link
