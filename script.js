@@ -78,10 +78,14 @@ function changeBtnText(cod, cant) {
 // Animación del monto total cuando se agrega un nuevo producto
 // al pedido
 function animateTotal() {
-  var element = document.getElementById("totalPricePreview");
-  element.classList.remove("animate");
-  void element.offsetWidth; // trigger a DOM reflow
-  element.classList.add("animate");
+  var precio1 = document.getElementById("totalPricePreview");
+  precio1.classList.remove("animate");
+  void precio1.offsetWidth;
+  precio1.classList.add("animate");
+  var precio2 = document.getElementById("totalPrice");
+  precio2.classList.remove("animate");
+  void precio2.offsetWidth;
+  precio2.classList.add("animate");
 }
 
 // Agregar un producto al pedido

@@ -12,23 +12,27 @@
 
 #loader {
   width: 100%;
-    background: var(--color-background);
-    height: 100%;
-    position: fixed;
-    display: flex;
-    z-index: 99;
-    align-items: center;
-    justify-content: center;
+  background: var(--color-background);
+  height: 100%;
+  position: fixed;
+  display: flex;
+  z-index: 99;
+  align-items: center;
+  justify-content: center;
 }
-.loaded #loader {display: none}
+
+.loaded #loader {
+  display: none;
+}
 
 .cssload-loader {
   width: 85px;
   height: 17px;
   position: fixed;
-  top:40vh;
+  top: 40vh;
   left: 50%;
   transform: translate(-50%, -50%);
+
   & > div {
     content: " ";
     width: 17px;
@@ -38,39 +42,44 @@
     position: absolute;
     animation: cssload-shift 2.3s linear infinite;
   }
+
   & > div:nth-of-type(1) {
     animation-delay: -0.46s;
   }
+
   & > div:nth-of-type(2) {
     animation-delay: -0.92s;
   }
+
   & > div:nth-of-type(3) {
     animation-delay: -1.38s;
   }
+
   & > div:nth-of-type(4) {
     animation-delay: -1.84s;
   }
 }
-
 @keyframes cssload-shift {
   0% {
     left: -51px;
     opacity: 0;
   }
+
   10% {
     left: 0;
     opacity: 1;
   }
+
   90% {
     left: 85px;
     opacity: 1;
   }
+
   100% {
     left: 136px;
     opacity: 0;
   }
 }
-
 
 body {
   background-color: var(--color-background);
@@ -88,6 +97,26 @@ body {
 
 img {
   max-width: 100%;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  font-weight: bold;
+  border-radius: 10px;
+  border: 0;
+  vertical-align: middle;
+  padding: 0.75em 1em;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+
+  &:active,
+  &:focus {
+    filter: brightness(0.95);
+  }
 }
 
 #content {
@@ -108,7 +137,6 @@ header {
     margin: 0 auto 1em;
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
     border-radius: 100%;
-    width: 6em;
   }
 
   h1 {
@@ -130,7 +158,7 @@ header {
     position: absolute;
     right: 0;
     top: 0;
-    display:none;
+    display: none;
 
     svg {
       fill: #ffffff;
@@ -199,18 +227,6 @@ header {
         }
 
         button {
-          font-weight: bold;
-          border-radius: 10px;
-          border: 0;
-          vertical-align: middle;
-          line-height: 2.7em;
-          padding: 0 1em;
-          cursor: pointer;
-
-          &:hover {
-            opacity: 0.8;
-          }
-
           &.remove {
             background-color: white;
             box-shadow: inset 0 0 0 3px var(--color-primary);
@@ -228,10 +244,7 @@ header {
             }
           }
 
-          &.add {
-            background-color: var(--color-primary);
-            color: var(--color-text-light);
-          }
+          &.add {}
         }
       }
     }
@@ -242,6 +255,7 @@ header {
   display: flex;
   justify-content: center;
   position: fixed;
+  z-index: 7;
   bottom: 0;
   width: 100%;
   left: 0;
@@ -257,9 +271,10 @@ header {
 
   .content {
     max-width: 23em;
-    flex-grow:1;
+    flex-grow: 1;
     padding: 0.8em 2em;
     background-color: var(--color-primary-dark);
+    font-size: 1em;
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -268,13 +283,12 @@ header {
     color: var(--color-text-light);
 
     span:first-child {}
-
-    #totalPricePreview {
-      &.animate {
-        animation: jump 0.3s ease-out;
-      }
-    }
   }
+}
+
+#totalPrice.animate,
+#totalPricePreview.animate {
+  animation: jump 0.3s ease-out;
 }
 @keyframes jump {
   from {
@@ -290,6 +304,7 @@ header {
 
 #order {
   position: fixed;
+  z-index: 9;
   top: 0;
   left: 0;
   background: white;
@@ -316,9 +331,7 @@ header {
     height: 5em;
     text-align: left;
     background: white;
-    cursor: pointer;
-    border: 0;
-    font-weight: bold;
+    color: var(--color-text-dark);
   }
 
   .list {
@@ -362,6 +375,7 @@ header {
           width: 2.3rem;
           height: 2.3rem;
           border-radius: 100%;
+          padding: 0;
           vertical-align: middle;
           border: 0;
           font-size: 1.1rem;
@@ -396,23 +410,11 @@ header {
     }
 
     #purchase {
-      background-color: var(--color-primary);
-      color: var(--color-text-light);
-      font-weight: bold;
-      border-radius: 10px;
-      border: 0;
-      padding: 1em;
-      text-align:  center;
-      font-size: 1em;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      font-size: 1em;
       width: 100%;
-
-      &:hover {
-        opacity: 0.8;
-      }
 
       svg {
         height: 1.4rem;
